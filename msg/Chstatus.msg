@@ -1,0 +1,2 @@
+string input
+bool status
