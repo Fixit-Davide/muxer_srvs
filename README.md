@@ -1,5 +1,5 @@
-# Muxer_srvs
-Set of custom ROS2 msgs and srvs for the CloudMuxer packet.
+# Muxer Services
+Set of custom ROS2 service definitions to interface with a package that muxes topics.
 
 # Pre-commit
 This project uses [pre-commit](https://pre-commit.com/).  On Ubuntu, install it with:
