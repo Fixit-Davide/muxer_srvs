@@ -5,6 +5,14 @@ on:
   push:
     branches:
       - iron
+  schedule:
+    # At 2:10 each day
+    - cron:  '10 02 * * *'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 
 jobs:
   Build:
