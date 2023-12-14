@@ -1,3 +1,5 @@
+[![Ubuntu 22.04 Iron Build](https://github.com/Fixit-Davide/muxer_srvs/actions/workflows/iron.yaml/badge.svg)](https://github.com/Fixit-Davide/muxer_srvs/actions/workflows/iron.yaml)
+[![Ubuntu 22.04 Rolling Build](https://github.com/Fixit-Davide/muxer_srvs/actions/workflows/rolling.yaml/badge.svg)](https://github.com/Fixit-Davide/muxer_srvs/actions/workflows/rolling.yaml)
 # Muxer Services
 Set of custom ROS2 service definitions to interface with a package that muxes topics.
 
