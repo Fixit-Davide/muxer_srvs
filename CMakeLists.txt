@@ -21,7 +21,7 @@ find_package(builtin_interfaces REQUIRED)
 find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/Switch.srv"
-  "msg/ChangeStatus.msg"
+  "msg/ChannelStatus.msg"
   "srv/GetStatus.srv"
   "srv/AddTopic.srv"
   "srv/RemoveTopic.srv"
