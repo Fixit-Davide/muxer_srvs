@@ -1,3 +1,4 @@
 string topic
 bool enable
 ---
+bool ok
