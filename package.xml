@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>custom_srv</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
-  <maintainer email="dgraziato10@gmail.com">davide</maintainer>
-  <license>TODO: License declaration</license>
+  <name>muxer_srvs</name>
+  <version>0.0.1</version>
+  <description>topic muxing services</description>
+  <maintainer email="dgraziato10@gmail.com">Davide Graziato</maintainer>
+  <license>GPL</license>
   
   <depend>builtin_interfaces</depend>
 
