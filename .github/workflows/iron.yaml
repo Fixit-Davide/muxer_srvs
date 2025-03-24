@@ -26,19 +26,11 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Configure git for private modules
-      env:
-        TOKEN: ${{ secrets.MYORG_REPO_ACCESS_TOKEN }}
-      run: |
-        git config --global url."https://roncapat:${TOKEN}@github.com".insteadOf "https://github.com"
-        cat ~/.gitconfig
-
     - name: Run Tests
       timeout-minutes: 10
       uses: ros-tooling/action-ros-ci@0.3.16
       with:
         target-ros2-distro: iron
-        import-token: ${{ secrets.GITHUB_TOKEN }}
         skip-rosdep-install: true
         colcon-defaults: |
           {

@@ -1,4 +1,4 @@
-name: Ubuntu 24.04 Rolling Build
+name: Ubuntu 22.04 Jazzy Build
 
 on:
   pull_request:
@@ -19,28 +19,30 @@ jobs:
     timeout-minutes: 10
     runs-on: self-hosted
     container:
-      image: osrf/ros:rolling-desktop-full
+      image: ${{ vars.LOCAL_DOCKER_REGISTRY_IP }}:5000/roxy_jazzy:base
 
     steps:
-    - name: Update
-      timeout-minutes: 2
-      run: apt-get update
-
-    - name: Install PIP
-      run: apt-get install -y python3-pip lcov python3-colcon-lcov-result python3-colcon-coveragepy-result
-
     - name: Checkout
       uses: actions/checkout@v4
 
     - name: Run Tests
+      timeout-minutes: 10
       uses: ros-tooling/action-ros-ci@0.3.16
       with:
-        target-ros2-distro: rolling
-        import-token: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: Upload Logs
-      uses: actions/upload-artifact@v4
-      with:
-        name: colcon-logs
-        path: ros_ws/log
-      if: failure()
+        target-ros2-distro: jazzy
+        skip-rosdep-install: true
+        colcon-defaults: |
+          {
+            "build": {
+                "merge-install": true,
+                "cmake-args": [
+                    "-D_FORTIFY_SOURCE=3",
+                    "-D_GLIBCXX_ASSERTIONS=1",
+                    "-DCMAKE_C_FLAGS=-march=native -fopenmp",
+                    "-DCMAKE_CXX_FLAGS=-march=native -fopenmp"
+                ]
+            },
+            "test": {
+                "merge-install": true
+            }
+          }
